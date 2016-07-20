@@ -1,0 +1,13 @@
+{
+  "name": "packageTheme",
+  "bin": {
+    "packageTheme": "packageTheme.js"
+  },
+  "dependencies": {
+    "shelljs": "^0.7.0",
+    "yargs": "^4.8.1",
+    "underscore":"^1.8.3",
+    "zip-folder":"^1.0.0"
+  },
+  "version": "1.0.0"
+}

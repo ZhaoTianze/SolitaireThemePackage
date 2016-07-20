@@ -109,6 +109,9 @@ var Operation1 = function (fileName) {
     //拷贝cardstyle文件夹
     var cardstyleDirPath = filePath+'/cardstyle';
     copyDir(cardstyleDirPath,UI_ResourcesPath+"/cardstyle");
+    //拷贝cardBack文件夹
+    var cardBackDirPath = filePath+'/cardBack';
+    copyDir(cardBackDirPath,UI_ResourcesPath+'/cardBack');
     // //进行文件加密
     var shellEx = '$QUICK_COCOS2DX_ROOT/bin/pack_files.sh -i ' + tmpFilePath + ' -o ' + tmp2RootPath + '/' + fileName + ' -ek 8VVTJ-UC2R1 -es XXTEA -x .json,.cardcolor';
     console.log(shellEx);

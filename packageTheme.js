@@ -177,8 +177,13 @@ var Operation3 = function(files) {
       var zipFilePath = zipRootPath+'/'+file+'.aac';
       copyFile(zipFilePath,assetsDirPath+'/'+file+'.aac');
       //拷贝bg.png到res/drawable
+      var drawablePath = resDirPath+'/drawable';
+      var isExists = exists(drawablePath);
+      if (!isExists){
+        fs.mkdirSync(drawablePath);
+      }
       var bgPngFilePath = resourcePath+'/'+file+'/bg.png';
-      copyFile(bgPngFilePath,resDirPath+'/drawable/bg.png');
+      copyFile(bgPngFilePath,drawablePath+'/bg.png');
       //拷贝icon到res文件下
       var iconDirPath = resourcePath+'/'+file+'/icon';
       var iconDirs = fs.readdirSync(iconDirPath)

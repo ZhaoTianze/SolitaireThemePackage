@@ -167,7 +167,7 @@ var Operation3 = function(files) {
   files.forEach(function(file) {
     var themeConfig = readThemeJsonFile(file);
     if (themeConfig) {
-      var packageKey = "com.born2play.solitaire.theme."+themeConfig.key;
+      var packageKey = "com.hipanda.solitaire.theme."+themeConfig.key;
       var resDirName = 'res_'+themeConfig.key;
       var assetsDirName = 'assets_'+themeConfig.key;
       //创建相关的文件夹

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">solitaire theme</string>
+    <string name="dialog_message">Bu temayı kullanmak ister misiniz? Bedava Solitaire indir.</string>
+    <string name="dialog_title">Eğer yeni bir tema sever misiniz?</string>
+    <string name="message">Yeni Tema hazır, lütfen başlatmak için Solitaire\'i karşıdan yükleme.</string>
+    <string name="message1">Yeni tema hazır, şimdi Solitaire içine yükleyin!</string>
+    <string name="download">Indir</string>
+    <string name="apply">Kurmak</string>
+    <string name="update">güncelleştirme</string>
+    <string name="dialog_message_update">Bu temayı kullanmak ister misiniz? Şimdi Solitaire yükseltin.</string>
+    <string name="message_update">Yeni tema hazır, başlamak için Solitaire yükseltin lütfen.</string>
+</resources>

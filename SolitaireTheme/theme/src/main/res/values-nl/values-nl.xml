@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">solitaire theme</string>
+    <string name="dialog_message">Wil je deze thema te gebruiken? Download Solitaire nu gratis.</string>
+    <string name="dialog_title">Hou je van het nieuwe thema?</string>
+    <string name="message">Nieuw thema klaar is, download dan Solitaire te beginnen.</string>
+    <string name="message1">Nieuw thema klaar is, installeer deze in Solitaire nu!</string>
+    <string name="download">Download</string>
+    <string name="apply">Installeren</string>
+    <string name="update">bijwerken</string>
+    <string name="dialog_message_update">Wil je deze thema te gebruiken? Upgrade Solitaire nu.</string>
+    <string name="message_update">Nieuw thema klaar is, kunt u een upgrade van Solitaire op het eerste.</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">solitaire theme</string>
+    <string name="dialog_message">이 테마를 사용하고 싶으십니까? 지금 무료 솔리테어를 다운로드 할 수 있습니다.</string>
+    <string name="dialog_title">새 테마를 좋아하세요?</string>
+    <string name="message">새로운 테마가 준비, 시작하는 카드 놀이를 다운로드하십시오.</string>
+    <string name="message1">새로운 테마가 준비, 지금 놀이에 설치!</string>
+    <string name="download">다운로드</string>
+    <string name="apply">설치</string>
+    <string name="update">최신 정보</string>
+    <string name="dialog_message_update">이 테마를 사용하고 싶으십니까? 지금 카드 놀이를 업그레이드합니다.</string>
+    <string name="message_update">새로운 테마가 준비, 처음에 카드 놀이를 업그레이드하시기 바랍니다.</string>
+</resources>

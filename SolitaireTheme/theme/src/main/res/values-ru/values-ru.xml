@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">solitaire theme</string>
+    <string name="dialog_message">Хотите использовать эту тему? Скачать Solitaire сейчас бесплатно.</string>
+    <string name="dialog_title">Нравится ли вам новая тема?</string>
+    <string name="message">Новая тема готова, пожалуйста, скачать Solitaire, чтобы начать.</string>
+    <string name="message1">Новая тема готова, установить его в Solitaire сейчас!</string>
+    <string name="download">Скачать</string>
+    <string name="apply">устанавливать</string>
+    <string name="update">Обновить</string>
+    <string name="dialog_message_update">Хотите использовать эту тему? Обновление Solitaire в настоящее время.</string>
+    <string name="message_update">Новая тема готова, пожалуйста, обновите Solitaire.</string>
+</resources>

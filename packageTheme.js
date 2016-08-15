@@ -10,12 +10,12 @@ var zipFolder = require('zip-folder');
 var child_process = require('child_process');
 
 var resourcePath = '../SolitaireResource/图片资源/UI/新主题';
-var outPutPath = '../SolitaireClient/Proj.android-studio/theme/src/main';
+var outPutPath = 'SolitaireTheme/theme/src/main';
 var tmpRootPath = 'tmp';
 var tmp2RootPath = 'tmp2';
 var zipRootPath = 'zip';
-var projScrRootPath = '../SolitaireClient/Proj.android-studio/theme/src/main';
-var packageFilePath = '../SolitaireClient/scr/package.json';
+var projScrRootPath = 'SolitaireTheme/theme/src/main';
+var packageFilePath = 'packageTheme.json';
 var SolitaireClient_Path = '../SolitaireClient'
 var SolitaireThemePakeage_Path = '../SolitaireThemePakeage'
 

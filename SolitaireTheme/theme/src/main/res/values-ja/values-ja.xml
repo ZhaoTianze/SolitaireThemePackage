@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">solitaire theme</string>
+    <string name="dialog_message">あなたはこのテーマを使用したいのですか？今すぐ無料でソリティアをダウンロードしてください。</string>
+    <string name="dialog_title">あなたは新しいテーマが好きですか？</string>
+    <string name="message">新しいテーマの準備が完了し、起動にソリティアをダウンロードしてください。</string>
+    <string name="message1">新しいテーマの準備ができている、今ソリティアにそれをインストール！</string>
+    <string name="download">ダウンロード</string>
+    <string name="apply">インストール</string>
+    <string name="update">更新</string>
+    <string name="dialog_message_update">このテーマを使用してみませんか？今ソリティアをアップグレードします。</string>
+    <string name="message_update">新しいテーマの準備ができた、最初でソリティアをアップグレードしてください。</string>
+</resources>

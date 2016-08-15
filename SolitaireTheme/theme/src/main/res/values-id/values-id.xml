@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">solitaire theme</string>
+    <string name="dialog_message">Ingin menggunakan tema ini? Ambil Solitaire sekarang gratis.</string>
+    <string name="dialog_title">Apakah Anda menyukai tema baru?</string>
+    <string name="message">tema baru siap, silahkan download Solitaire untuk memulai.</string>
+    <string name="message1">tema baru siap, menginstalnya ke Solitaire sekarang!</string>
+    <string name="download">Download</string>
+    <string name="apply">Memasang</string>
+    <string name="update">memperbarui</string>
+    <string name="dialog_message_update">Ingin menggunakan tema ini? Tingkatkan Solitaire sekarang.</string>
+    <string name="message_update">tema baru siap, silakan upgrade Solitaire pada awalnya.</string>
+</resources>

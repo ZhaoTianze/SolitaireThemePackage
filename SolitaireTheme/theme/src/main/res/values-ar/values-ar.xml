@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">solitaire theme</string>
+    <string name="dialog_message">تريد استخدام هذا الموضوع؟ تحميل سوليتير الآن مجانا</string>
+    <string name="dialog_title">هل تحب موضوع جديد؟</string>
+    <string name="message">موضوع جديد جاهز، يرجى تحميل سوليتير أولا.</string>
+    <string name="message1">موضوع جديد جاهز، وتثبيته في سوليتير الآن!</string>
+    <string name="download">تحميل</string>
+    <string name="apply">تثبيت</string>
+    <string name="update">تحديث</string>
+    <string name="dialog_message_update">تريد استخدام هذا الموضوع؟ ترقية سوليتير الآن</string>
+    <string name="message_update">موضوع جديد جاهز، الرجاء الترقية سوليتير أولا</string>
+</resources>

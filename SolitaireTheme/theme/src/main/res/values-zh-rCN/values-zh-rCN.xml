@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">solitaire theme</string>
+    <string name="dialog_message">想用这个皮肤玩纸牌接龙吗？快去免费下载吧。</string>
+    <string name="dialog_title">喜欢全新主题？</string>
+    <string name="message">全新主题已经准备就绪，请先下载纸牌接龙游戏。</string>
+    <string name="message1">全新主题已经准备就绪，赶快安装到纸牌接龙游戏里去吧。</string>
+    <string name="download">下载</string>
+    <string name="apply">安装</string>
+    <string name="update">更新</string>
+    <string name="dialog_message_update">想用这个皮肤玩纸牌接龙吗？快去更新吧。</string>
+    <string name="message_update">全新主题已经准备就绪，请先更新纸牌接龙游戏。</string>
+</resources>

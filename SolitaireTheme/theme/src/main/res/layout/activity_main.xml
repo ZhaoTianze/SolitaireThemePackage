@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout android:id="@id/activity_main" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:id="@id/bind__button" android:background="#00000000" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <FrameLayout android:gravity="center|top" android:orientation="horizontal" android:id="@id/rrrr" android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+        <ImageView android:id="@id/view_bg" android:layout_width="640px" android:layout_height="1136px" android:src="@drawable/bg" android:layout_alignParentBottom="false" android:contentDescription="@string/app_name"
+            android:layout_centerHorizontal="true" />
+    </FrameLayout>
+
+    <RelativeLayout android:gravity="bottom|center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+        <ImageView android:id="@id/view_mask" android:background="@drawable/mask" android:layout_width="match_parent" android:layout_height="150.0sp"
+            android:layout_alignParentBottom="true" android:contentDescription="@string/app_name"
+            android:contextClickable="false"
+            android:layout_marginBottom="0px" />
+
+        <TextView android:textColor="#ffffff" android:gravity="center_horizontal" android:id="@id/view_message" android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:text="@string/message" android:contentDescription="@string/app_name"
+            android:textSize="20sp"
+            android:layout_alignParentBottom="false"
+            android:layout_marginTop="15sp"
+            android:layout_alignParentTop="false"
+            android:layout_alignTop="@id/view_mask" />
+
+        <ImageView android:id="@id/view_button" android:background="@drawable/install" android:layout_width="320sp" android:layout_height="50sp"
+            android:layout_alignParentBottom="false" android:contentDescription="@string/app_name"
+            android:contextClickable="false"
+            android:layout_marginTop="10sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/view_message" />
+
+        <TextView android:textColor="#ffffff"
+            android:id="@id/btnTextView" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/download" android:contentDescription="@string/app_name"
+            android:textSize="40sp"
+            android:layout_alignParentBottom="false"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5sp"
+            android:layout_below="@id/view_message" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

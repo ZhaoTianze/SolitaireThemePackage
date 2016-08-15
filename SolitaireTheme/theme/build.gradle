@@ -38,7 +38,7 @@ android {
             assets.srcDir "src/main/assets"
         }
     }
-    def jsonfile = new File(getProjectDir().getPath()+"/../../scr/package.json")
+    def jsonfile = new File(getProjectDir().getPath()+"/../../packageTheme.json")
     if (jsonfile.exists()){
         def jsonObject = new JSONObject(jsonfile.text)
         if (jsonObject != null){
@@ -74,6 +74,8 @@ dependencies {
 }
 
 assembleRelease.doLast {
+    def oldForder = new File(getProjectDir().getPath()+"/../../outputs")
+    if (oldForder) oldForder.deleteDir()
     def time = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())
     def dir = new File(getProjectDir().getPath()+"/build/outputs/apk/")
     def files = dir.listFiles()
@@ -83,7 +85,7 @@ assembleRelease.doLast {
             //这里拷贝apk文件
             copy {
                 from "./build/outputs/apk/" + fileName
-                into "../../outputs/" + getProjectDir().getName()
+                into "../../outputs/"
                 rename {
                     fileName = fileName - "release.apk" + "${time}.apk"
                 }

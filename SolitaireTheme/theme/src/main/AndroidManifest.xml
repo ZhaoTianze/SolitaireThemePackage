@@ -21,6 +21,15 @@
             android:grantUriPermissions="true"
             android:exported="true"/>
 
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
+        <receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
+                  android:exported="true"
+                  android:permission="android.permission.INSTALL_PACKAGES">
+          <intent-filter>
+            <action android:name="com.android.vending.INSTALL_REFERRER" />
+          </intent-filter>
+        </receiver>
+
     </application>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.INTERNET" />

@@ -10,6 +10,6 @@ packageTheme
 
 cd $APP_STUDIO_ROOT
 
-gradle assembleRelease		
+./gradlew assembleRelease
 
 cd $APP_ROOT

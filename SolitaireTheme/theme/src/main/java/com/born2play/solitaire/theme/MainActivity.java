@@ -23,10 +23,16 @@ enum AppStatus {
     no_basic,
     updata_basic,
     ok_basic,
+    no_full1,
+    ok_full1,
+    no_full2,
+    ok_full2,
 }
 public class MainActivity extends Activity {
     private String basicPackageName = "com.queensgame.solitaire";
     private String fullPackageName = "com.cardgame.solitaire.full";
+    private String full1PackageName = "com.cardgame.solitaire.basic1";
+    private String full2PackageName = "com.cardgame.solitaire.basic2";
     private String mainPackageName = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +54,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 AppStatus appStatus = isInstall();
-                if (appStatus == AppStatus.ok_basic || appStatus == AppStatus.ok_full){
+                if (isOK(appStatus)){
                     openMainApp();
                 }else {
                     openStore();
@@ -57,17 +63,17 @@ public class MainActivity extends Activity {
         });
         updateView();
         AppStatus appStatus = isInstall();
-        if (appStatus != AppStatus.ok_basic && appStatus != AppStatus.ok_full){
+        if (!isOK(appStatus)){
             createDialog();
         }
     }
 
     private void updateView(){
         AppStatus appStatus = isInstall();
-        if(appStatus == AppStatus.ok_basic || appStatus == AppStatus.ok_full){
+        if(isOK(appStatus)){
             ((TextView)findViewById(R.id.view_message)).setText(R.string.message1);
             ((TextView)findViewById(R.id.btnTextView)).setText(R.string.apply);
-        }else if (appStatus == AppStatus.updata_basic || appStatus == AppStatus.updata_full){
+        }else if (isNeedUpdate(appStatus)){
             ((TextView)findViewById(R.id.view_message)).setText(R.string.message_update);
             ((TextView)findViewById(R.id.btnTextView)).setText(R.string.update);
         }else{
@@ -85,7 +91,7 @@ public class MainActivity extends Activity {
     private void createDialog(){
         AppStatus appStatus = isInstall();
         AlertDialog.Builder localBuilder = new AlertDialog.Builder(this);
-        if (appStatus == AppStatus.no_basic || appStatus == AppStatus.no_full){
+        if (isNeedDowload(appStatus)){
             localBuilder.setMessage(R.string.dialog_message);
             localBuilder.setPositiveButton(R.string.download, new DialogInterface.OnClickListener() {
                 @Override
@@ -107,20 +113,43 @@ public class MainActivity extends Activity {
         localBuilder.create().show();
     }
 
+    private boolean isOK(AppStatus appStatus){
+        if (appStatus == AppStatus.ok_basic || appStatus == AppStatus.ok_full ||
+                appStatus == AppStatus.ok_full1 || appStatus == AppStatus.ok_full2){
+            return true;
+        }
+        return false;
+    }
+    private boolean isNeedUpdate(AppStatus appStatus){
+        if (appStatus == AppStatus.updata_basic || appStatus == AppStatus.updata_full){
+            return true;
+        }
+        return false;
+    }
+    private boolean isNeedDowload(AppStatus appStatus){
+        if (appStatus == AppStatus.no_basic || appStatus == AppStatus.no_full ||
+                appStatus == AppStatus.no_full1 || appStatus == AppStatus.no_full2){
+            return true;
+        }
+        return false;
+    }
+
     private AppStatus isInstall(){
         int limitVersionCode = 12;
         AppStatus appStatus;
         mainPackageName = basicPackageName;
+        boolean ok = false;
         try {
             PackageInfo pi = getPackageManager().getPackageInfo(basicPackageName, 0);
             if (pi.versionCode >= limitVersionCode)
                 appStatus = AppStatus.ok_basic;
             else
                 appStatus = AppStatus.updata_basic;
+            ok = true;
         }catch (Exception e){
             appStatus = AppStatus.no_basic;
         }
-        if (appStatus == AppStatus.no_basic){
+        if (!ok){
             try {
                 PackageInfo pi = getPackageManager().getPackageInfo(fullPackageName, 0);
                 if (pi.versionCode >= limitVersionCode)
@@ -128,6 +157,25 @@ public class MainActivity extends Activity {
                 else
                     appStatus = AppStatus.updata_full;
                 mainPackageName = fullPackageName;
+                ok = true;
+            }catch (Exception e){
+            }
+        }
+        if (!ok){
+            try {
+                getPackageManager().getPackageInfo(full1PackageName, 0);
+                appStatus = AppStatus.ok_full1;
+                mainPackageName = full1PackageName;
+                ok = true;
+            }catch (Exception e){
+            }
+        }
+        if (!ok){
+            try {
+                getPackageManager().getPackageInfo(full2PackageName, 0);
+                appStatus = AppStatus.ok_full2;
+                mainPackageName = full2PackageName;
+                ok = true;
             }catch (Exception e){
             }
         }

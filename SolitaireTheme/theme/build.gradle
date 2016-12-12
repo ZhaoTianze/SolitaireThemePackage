@@ -19,8 +19,8 @@ android {
         applicationId "com.born2play.solitaire.theme"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 3
-        versionName "1.2"
+        versionCode 8
+        versionName "1.7"
         signingConfig signingConfigs.signing
     }
     buildTypes {

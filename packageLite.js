@@ -150,12 +150,13 @@ var Operation3 = function(files) {
       copyDir(zipFilePath,assetsDirPath+'/res');
       //拷贝icon到res文件下
       var iconDirPath = resourcePath+'/'+file+'/icon';
-      var iconDirs = fs.readdirSync(iconDirPath)
-      iconDirs.forEach(function(iconDir) {
-        if (iconDir.indexOf('mipmap') === 0){
-          copyDir(iconDirPath + '/' + iconDir, resDirPath + '/' + iconDir);
-        }
-      }, this);
+      // var iconDirs = fs.readdirSync(iconDirPath)
+      // iconDirs.forEach(function(iconDir) {
+      //   if (iconDir.indexOf('mipmap') === 0){
+      //     copyDir(iconDirPath + '/' + iconDir, resDirPath + '/' + iconDir);
+      //   }
+      // }, this);
+      copyDir(iconDirPath,resDirPath);
       copyDir(projScrRootPath+'/resDefault',resDirPath);
       //修改res下value文件的appName
       changeAppName(file,themeConfig);

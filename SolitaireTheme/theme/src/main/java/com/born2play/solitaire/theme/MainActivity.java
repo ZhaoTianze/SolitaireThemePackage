@@ -210,7 +210,10 @@ public class MainActivity extends Activity {
     }
     //启动应用商店
     private void openStore(){
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+mainPackageName+"&referrer=utm_source%3Dthemepromo"));
+        String string = getPackageName();
+        int index = string.lastIndexOf(".");
+        String name = string.substring(index+1);
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+mainPackageName+"&referrer=utm_source%3Dthemepromo%26utm_campaign%3D"+name));
         startActivity(intent);
     }
 }

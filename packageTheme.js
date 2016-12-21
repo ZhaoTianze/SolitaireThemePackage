@@ -2,15 +2,14 @@
 
 // file system
 var fs = require('fs');
+var fileEx = require('./fileEx');
 // shell tools
 var shell = require('shelljs');
 // underscore
 var _ = require('underscore');
 var zipFolder = require('zip-folder');
-var child_process = require('child_process');
 
 var resourcePath = '../SolitaireResource/图片资源/UI/新主题';
-var outPutPath = 'SolitaireTheme/theme/src/main';
 var tmpRootPath = 'tmp';
 var tmp2RootPath = 'tmp2';
 var zipRootPath = 'zip';
@@ -18,51 +17,6 @@ var projScrRootPath = 'SolitaireTheme/theme/src/main';
 var packageFilePath = 'packageTheme.json';
 var SolitaireClient_Path = '../SolitaireClient'
 var SolitaireThemePakeage_Path = '../SolitaireThemePakeage'
-
-var exists = function (path) {
-  try {
-    return fs.statSync(path,fs.F_OK);
-  } catch (error) {
-    return false;
-  }
-}
-
-var copyFile = function (src,dist) {
-  // console.log('复制文件：'+src+' 到 '+dist);
-  var isExists = exists(src);
-  if (isExists){
-    // fs.createReadStream(src).pipe(fs.createWriteStream(dist));
-    shell.exec('cp -f '+src+' '+dist);
-  }
-}
-
-var rmDir = function (path) {
-  var isExists = exists(path);
-  if (isExists) {
-    shell.exec('rm -rf '+path);//强制删除整个tmp文件夹
-  }
-}
-
-var copyDir = function (src,dist) {
-  var isExists = exists(src);
-  if (isExists) {
-    var distState = exists(dist);
-    if (!distState){
-      fs.mkdirSync(dist);//创建目标文件夹
-    }
-    var files = fs.readdirSync(src);
-    files.forEach(function (file) {
-      var _src = src + '/' + file;
-      var _dist = dist + '/' + file;
-      var state = exists(_src);
-      if (state && state.isFile()) {
-        copyFile(_src,_dist);
-      }else if (state && state.isDirectory()) {
-        copyDir(_src,_dist);
-      }
-    })	
-  }
-}
 
 var readThemeJsonFile = function (fileName) {
   var filePath = resourcePath + '/' + fileName;
@@ -96,22 +50,22 @@ var Operation1 = function (fileName) {
     shell.exec('TexturePacker --sheet ' + UI_ResourcesPath + '/' + textureName + '.png --data ' + UI_ResourcesPath + '/' + textureName + '.plist ' +filePath + '/UI_CardResources/*png');
     var jsonFileName = "theme_"+fileName+".json";
     //拷贝json文件
-    copyFile(filePath+'/'+jsonFileName,UI_ResourcesPath+'/'+jsonFileName);
+    fileEx.copyFile(filePath+'/'+jsonFileName,UI_ResourcesPath+'/'+jsonFileName);
     //拷贝color文件
     var colorFileName = "color"+themeConfig.faceIndex+'.cardcolor';
-    copyFile(filePath+'/'+colorFileName,UI_ResourcesPath+'/'+colorFileName);
+    fileEx.copyFile(filePath+'/'+colorFileName,UI_ResourcesPath+'/'+colorFileName);
     //拷贝paticle文件夹
     var paticleDirPath = filePath+'/particle';
-    copyDir(paticleDirPath,tmpFilePath+'/particle');
+    fileEx.copyDir(paticleDirPath,tmpFilePath+'/particle');
     //拷贝theme文件夹
     var themeDirPath = filePath+'/theme';
-    copyDir(themeDirPath,UI_ResourcesPath+"/theme");
+    fileEx.copyDir(themeDirPath,UI_ResourcesPath+"/theme");
     //拷贝cardstyle文件夹
     var cardstyleDirPath = filePath+'/cardstyle';
-    copyDir(cardstyleDirPath,UI_ResourcesPath+"/cardstyle");
+    fileEx.copyDir(cardstyleDirPath,UI_ResourcesPath+"/cardstyle");
     //拷贝cardBack文件夹
     var cardBackDirPath = filePath+'/cardBack';
-    copyDir(cardBackDirPath,UI_ResourcesPath+'/cardBack');
+    fileEx.copyDir(cardBackDirPath,UI_ResourcesPath+'/cardBack');
     // //进行文件加密
     var shellEx = '$QUICK_COCOS2DX_ROOT/bin/pack_files.sh -i ' + tmpFilePath + ' -o ' + tmp2RootPath + '/' + fileName + ' -ek 8VVTJ-UC2R1 -es XXTEA -x .json,.cardcolor';
     console.log(shellEx);
@@ -175,24 +129,24 @@ var Operation3 = function(files) {
       var assetsDirPath = projScrRootPath + '/' + assetsDirName;
       console.log(file+'开始准备asset和res文件夹');
       fs.mkdirSync(assetsDirPath);
-      copyDir(projScrRootPath+'/resDefault',resDirPath);
+      fileEx.copyDir(projScrRootPath+'/resDefault',resDirPath);
       //拷贝zip文件到assets下
       var zipFilePath = zipRootPath+'/'+file+'.aac';
-      copyFile(zipFilePath,assetsDirPath+'/'+file+'.aac');
+      fileEx.copyFile(zipFilePath,assetsDirPath+'/'+file+'.aac');
       //拷贝bg.png到res/drawable
       var drawablePath = resDirPath+'/drawable';
-      var isExists = exists(drawablePath);
+      var isExists = fileEx.exists(drawablePath);
       if (!isExists){
         fs.mkdirSync(drawablePath);
       }
       var bgPngFilePath = resourcePath+'/'+file+'/bg.png';
-      copyFile(bgPngFilePath,drawablePath+'/bg.png');
+      fileEx.copyFile(bgPngFilePath,drawablePath+'/bg.png');
       //拷贝icon到res文件下
       var iconDirPath = resourcePath+'/'+file+'/icon';
       var iconDirs = fs.readdirSync(iconDirPath)
       iconDirs.forEach(function(iconDir) {
         if (iconDir.indexOf('mipmap') === 0){
-          copyDir(iconDirPath + '/' + iconDir, resDirPath + '/' + iconDir);
+          fileEx.copyDir(iconDirPath + '/' + iconDir, resDirPath + '/' + iconDir);
         }
       }, this);
       //修改res下value文件的appName
@@ -217,7 +171,7 @@ var rmProjectResource = function() {
     var assetsIndex = floderName.indexOf('assets_');
     var resIndex = floderName.indexOf('res_');
     if (assetsIndex != -1 || resIndex != -1) {
-      rmDir(projScrRootPath + '/' + floderName);
+      fileEx.rmDir(projScrRootPath + '/' + floderName);
     }
   }
 }
@@ -230,9 +184,9 @@ var Operation4 = function () {
 
 var OperationBegin = function() {
     //1.删除原有的临时文件，创建新的文件夹
-    rmDir(tmpRootPath);
-    rmDir(tmp2RootPath);
-    rmDir(zipRootPath);
+    fileEx.rmDir(tmpRootPath);
+    fileEx.rmDir(tmp2RootPath);
+    fileEx.rmDir(zipRootPath);
     fs.mkdirSync(tmpRootPath);
     fs.mkdirSync(tmp2RootPath);
     fs.mkdirSync(zipRootPath);

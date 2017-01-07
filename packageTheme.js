@@ -162,7 +162,7 @@ var changeXML = function (xmlPath,appName) {
 //准备工程文件
 var Operation3 = function(files) {
   console.log('开始准备工程文件');
-  var packageJson = JSON.parse(fs.readFileSync(packageFilePath));
+  var packageJson = JSON.parse("{}");
   var newThemes = {}
   files.forEach(function(file) {
     var themeConfig = readThemeJsonFile(file);

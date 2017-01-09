@@ -104,7 +104,7 @@ public class MainActivity extends Activity {
     }
 
     private boolean isInstall(){
-        mainPackageName = mPackageNameList[0];
+        mainPackageName = mPackageNameList[1];
         for (int i = 0; i < mPackageNameList.length; i++) {
             try {
                 getPackageManager().getPackageInfo(mPackageNameList[i], 0);

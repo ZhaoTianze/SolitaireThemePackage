@@ -6,19 +6,23 @@ APP_STUDIO_ROOT="$DIR/SolitaireTheme"
 PARAMS="$1"
 
 echo "param[res, build]...
-		res: not build apk！
-		build: not copy res！"
+res: not build apk！
+build: not copy res！"
 
 cd $APP_ROOT
 
-if [[ $PARAMS != "build" ]]; then
-	packageTheme
-fi
+# if [[ $PARAMS != "build" ]]; then
+# 	packageTheme
+# fi
+
+java -jar package.jar
 
 cd $APP_STUDIO_ROOT
 
 if [[ $PARAMS != "res" ]]; then
 	./gradlew myRelease
 fi
+
+
 
 cd $APP_ROOT

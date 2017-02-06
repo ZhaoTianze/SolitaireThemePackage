@@ -1,0 +1,9 @@
+{
+	"outPutPath":"/Users/yfc/Projects/SolitaireThemePackage/SolitaireTheme/theme/src/main",
+	"tmpRootPath":"tmp",
+	"tmp2RootPath":"tmp2",
+	"resourcePath":"/Users/yfc/Projects/SolitaireResource/图片资源/UI/新主题",
+	"zipRootPath":"zip",
+	"packageFilePath":"packageTheme.json",
+	"quick_root":"/Users/yfc/Projects/quick-cocos2d-x"
+}

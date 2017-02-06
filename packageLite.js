@@ -7,7 +7,6 @@ var shell = require('shelljs');
 // underscore
 var _ = require('underscore');
 var zipFolder = require('zip-folder');
-var child_process = require('child_process');
 
 var resourcePath = '../SolitaireResource/图片资源/UI/lite';
 var tmpRootPath = 'lite_tmp';

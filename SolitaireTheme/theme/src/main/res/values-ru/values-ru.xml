@@ -10,4 +10,5 @@
     <string name="update">Обновить</string>
     <string name="dialog_message_update">Хотите использовать эту тему? Обновление Solitaire в настоящее время.</string>
     <string name="message_update">Новая тема готова, пожалуйста, обновите Solitaire.</string>
+    <string name="message_select">Please select one of the games to install!</string>
 </resources>

@@ -9,13 +9,21 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         <activity android:name="com.born2play.solitaire.theme.MainActivity"
-            android:screenOrientation="portrait">
+                  android:launchMode="singleTask"
+                  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.born2play.solitaire.theme.SelectAppActivity"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+                  android:launchMode="singleTask"
+                  android:screenOrientation="portrait">
+        </activity>
+
         <provider android:authorities="${package_name}.AssetProvider"
             android:name="com.born2play.solitaire.theme.AssetProvider"
             android:grantUriPermissions="true"

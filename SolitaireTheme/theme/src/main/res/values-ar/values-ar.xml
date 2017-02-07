@@ -10,4 +10,5 @@
     <string name="update">تحديث</string>
     <string name="dialog_message_update">تريد استخدام هذا الموضوع؟ ترقية سوليتير الآن</string>
     <string name="message_update">موضوع جديد جاهز، الرجاء الترقية سوليتير أولا</string>
+    <string name="message_select">Please select one of the games to install!</string>
 </resources>

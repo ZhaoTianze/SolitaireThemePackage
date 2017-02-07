@@ -10,4 +10,5 @@
     <string name="update">güncelleştirme</string>
     <string name="dialog_message_update">Bu temayı kullanmak ister misiniz? Şimdi Solitaire yükseltin.</string>
     <string name="message_update">Yeni tema hazır, başlamak için Solitaire yükseltin lütfen.</string>
+    <string name="message_select">Please select one of the games to install!</string>
 </resources>

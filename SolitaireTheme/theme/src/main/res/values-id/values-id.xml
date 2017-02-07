@@ -10,4 +10,5 @@
     <string name="update">memperbarui</string>
     <string name="dialog_message_update">Ingin menggunakan tema ini? Tingkatkan Solitaire sekarang.</string>
     <string name="message_update">tema baru siap, silakan upgrade Solitaire pada awalnya.</string>
+    <string name="message_select">Please select one of the games to install!</string>
 </resources>

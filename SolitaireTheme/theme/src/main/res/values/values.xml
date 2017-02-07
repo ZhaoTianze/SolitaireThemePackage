@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="select_view_height">253dp</dimen>
+    <dimen name="select_view_width">318dp</dimen>
+    <dimen name="select_view_top_height">47dp</dimen>
+    <dimen name="select_view_title_size">23sp</dimen>
+    <dimen name="select_view_info_size">14sp</dimen>
+    <dimen name="select_view_info_height">30dp</dimen>
+    <dimen name="select_view_item_height">65dp</dimen>
+    <dimen name="select_view_icon_size">58dp</dimen>
+    <dimen name="select_view_icon_padding">7dp</dimen>
+    <dimen name="select_view_app_name_size">20sp</dimen>
+    <dimen name="select_view_close_padding">12sp</dimen>
+</resources>

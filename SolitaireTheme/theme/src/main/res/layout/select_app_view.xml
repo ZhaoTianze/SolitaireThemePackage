@@ -69,7 +69,8 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/line"
                         android:id="@+id/imageView"
-                        android:layout_alignParentBottom="true"/>
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitXY"/>
 
                 </RelativeLayout>
 

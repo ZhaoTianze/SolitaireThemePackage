@@ -10,5 +10,5 @@
     <string name="update">actualizar</string>
     <string name="dialog_message_update">¿Quieres utilizar este tema? Actualizar Solitaire ahora.</string>
     <string name="message_update">Nuevo tema está listo, por favor, actualice Solitaire primero.</string>
-    <string name="message_select">Please select one of the games to install!</string>
+    <string name="message_select">¡Por favor, selecciona uno de los juegos a instalar!</string>
 </resources>

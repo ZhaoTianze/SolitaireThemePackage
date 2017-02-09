@@ -10,5 +10,5 @@
     <string name="update">bijwerken</string>
     <string name="dialog_message_update">Wil je deze thema te gebruiken? Upgrade Solitaire nu.</string>
     <string name="message_update">Nieuw thema klaar is, kunt u een upgrade van Solitaire op het eerste.</string>
-    <string name="message_select">Please select one of the games to install!</string>
+    <string name="message_select">Selecteer één van de spellen om deze te installeren!</string>
 </resources>

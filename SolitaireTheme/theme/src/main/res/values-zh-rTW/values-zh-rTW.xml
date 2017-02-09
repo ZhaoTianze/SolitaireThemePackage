@@ -10,5 +10,5 @@
     <string name="update">更新</string>
     <string name="dialog_message_update">想用這個皮膚玩紙牌接龍嗎？快去更新吧。</string>
     <string name="message_update">全新主題已經準備就緒，請先更新紙牌接龍遊戲。</string>
-    <string name="message_select">Please select one of the games to install!</string>
+    <string name="message_select">請選擇將要安裝此主題的遊戲程序！</string>
 </resources>

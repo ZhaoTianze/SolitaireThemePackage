@@ -10,5 +10,5 @@
     <string name="update">mettre à jour</string>
     <string name="dialog_message_update">Voulez-vous utiliser ce thème? Mise à niveau Solitaire maintenant.</string>
     <string name="message_update">Nouveau thème est prêt, s\'il vous plaît mettre à niveau Solitaire au premier abord.</string>
-    <string name="message_select">Please select one of the games to install!</string>
+    <string name="message_select">Veuillez choisir un des jeux à installer !</string>
 </resources>

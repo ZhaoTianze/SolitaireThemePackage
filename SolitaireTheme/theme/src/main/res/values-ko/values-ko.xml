@@ -10,5 +10,5 @@
     <string name="update">최신 정보</string>
     <string name="dialog_message_update">이 테마를 사용하고 싶으십니까? 지금 카드 놀이를 업그레이드합니다.</string>
     <string name="message_update">새로운 테마가 준비, 처음에 카드 놀이를 업그레이드하시기 바랍니다.</string>
-    <string name="message_select">Please select one of the games to install!</string>
+    <string name="message_select">설치하실 한 개의 게임을 선택해 주세요!</string>
 </resources>

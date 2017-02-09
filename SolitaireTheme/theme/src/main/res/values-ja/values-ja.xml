@@ -10,5 +10,5 @@
     <string name="update">更新</string>
     <string name="dialog_message_update">このテーマを使用してみませんか？今ソリティアをアップグレードします。</string>
     <string name="message_update">新しいテーマの準備ができた、最初でソリティアをアップグレードしてください。</string>
-    <string name="message_select">Please select one of the games to install!</string>
+    <string name="message_select">ゲームを一つ選んでインストールしてください!</string>
 </resources>

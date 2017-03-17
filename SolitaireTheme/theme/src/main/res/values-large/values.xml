@@ -11,4 +11,18 @@
     <dimen name="select_view_icon_padding">11dp</dimen>
     <dimen name="select_view_app_name_size">30sp</dimen>
     <dimen name="select_view_close_padding">18sp</dimen>
+
+    <dimen name="theme_bottom_height">157dp</dimen>
+    <dimen name="theme_banner_height">75dp</dimen>
+    <dimen name="theme_btn_width">516dp</dimen>
+    <dimen name="theme_btn_height">70dp</dimen>
+    <dimen name="theme_message_size">20sp</dimen>
+    <dimen name="theme_btn_txt_size">33sp</dimen>
+    <dimen name="theme_banner_btn_width">142dp</dimen>
+    <dimen name="theme_banner_btn_height">59dp</dimen>
+    <dimen name="theme_banner_btn_txt_size">21sp</dimen>
+    <dimen name="theme_banner_title_size">29sp</dimen>
+    <dimen name="theme_banner_txt_size">19sp</dimen>
+    <dimen name="theme_loading_width">121dp</dimen>
+    <dimen name="theme_loading_height">75dp</dimen>
 </resources>

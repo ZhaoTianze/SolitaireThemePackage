@@ -173,4 +173,11 @@
         </FrameLayout>
 
     </LinearLayout>
+
+    <com.born2play.solitaire.theme.LoadingView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/loadingView">
+
+    </com.born2play.solitaire.theme.LoadingView>
 </RelativeLayout>

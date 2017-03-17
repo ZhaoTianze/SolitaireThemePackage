@@ -13,15 +13,22 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.facebook.ads.InterstitialAd;
+
 /**
  * Created on 2017/2/7.
  */
 
 public class SelectAppActivity extends Activity {
+    private FacebookAds mFacebookAds;
+    private LoadingView mLoadingView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_app_view);
+        mLoadingView = (LoadingView)findViewById(R.id.loadingView);
+        mLoadingView.setVisibility(View.GONE);
+        mFacebookAds = ((MyApplication)getApplication()).getFacebookAds();
         findViewById(R.id.btn_close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +51,24 @@ public class SelectAppActivity extends Activity {
             return true;
         }
         return super.onKeyDown(code, event);
+    }
+
+    public void openMainApp(final String pkg){
+        mLoadingView.setVisibility(View.VISIBLE);
+        mFacebookAds.showInterstitial(SelectAppActivity.this, new AdPlayListener() {
+            @Override
+            public void adLoaded(InterstitialAd interstitialAd) {
+                interstitialAd.show();
+            }
+
+            @Override
+            public void adEnded() {
+                mLoadingView.setVisibility(View.GONE);
+                mFacebookAds.clearListener();
+                Utils.openMainApp(SelectAppActivity.this.getApplicationContext(), pkg);
+                SelectAppActivity.this.finish();
+            }
+        });
     }
 
     public class AppListAdapter extends BaseAdapter {
@@ -85,7 +110,18 @@ public class SelectAppActivity extends Activity {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Utils.openMainApp(SelectAppActivity.this, Utils.installList.get(position));
+                    mFacebookAds.showInterstitial(SelectAppActivity.this, new AdPlayListener() {
+                        @Override
+                        public void adLoaded(InterstitialAd interstitialAd) {
+
+                        }
+
+                        @Override
+                        public void adEnded() {
+
+                        }
+                    });
+                    SelectAppActivity.this.openMainApp(Utils.installList.get(position));
                 }
             });
 

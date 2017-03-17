@@ -5,20 +5,33 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.facebook.ads.InterstitialAd;
 
 
 public class MainActivity extends Activity {
     private String mainPackageName = "";
+    private LoadingView mLoadingView;
+    private FacebookAds mFacebookAds;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+        mFacebookAds = ((MyApplication)getApplication()).getFacebookAds();
+        mFacebookAds.loadNativeBanner(this, (ViewGroup)findViewById(R.id.ad_view));
+
         Display display = getWindowManager().getDefaultDisplay();
         int width = display.getWidth();
         float rate = width / 640.f;
@@ -26,11 +39,10 @@ public class MainActivity extends Activity {
         FrameLayout.LayoutParams bgLayoutParams = (FrameLayout.LayoutParams)(findViewById(R.id.view_bg).getLayoutParams());
         bgLayoutParams.width = (int)(bgLayoutParams.width*rate);
         bgLayoutParams.height = (int)(bgLayoutParams.height*rate);
-        bgLayoutParams.topMargin = 0;
-        bgLayoutParams.leftMargin = (width- bgLayoutParams.width)/2;
 
+        mLoadingView = (LoadingView)findViewById(R.id.loadingView);
 
-        (findViewById(R.id.bind__button)).setOnClickListener(new View.OnClickListener() {
+        (findViewById(R.id.view_bg)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int count = analysisInstall();
@@ -44,10 +56,24 @@ public class MainActivity extends Activity {
             }
         });
         updateView();
-        int count = analysisInstall();
-        if (count == 0){
-            createDialog();
-        }
+
+        mLoadingView.setVisibility(View.VISIBLE);
+        mFacebookAds.showInterstitial(this, new AdPlayListener() {
+            @Override
+            public void adLoaded(InterstitialAd interstitialAd) {
+                interstitialAd.show();
+            }
+
+            @Override
+            public void adEnded() {
+                mLoadingView.setVisibility(View.GONE);
+                mFacebookAds.clearListener();
+                int count = analysisInstall();
+                if (count == 0){
+                    createDialog();
+                }
+            }
+        });
     }
 
     private void updateView(){
@@ -82,8 +108,8 @@ public class MainActivity extends Activity {
     }
 
     private void openSelectList(){
-        Intent intent = new Intent(this, SelectAppActivity.class);
-        this.startActivity(intent);
+        Intent intent = new Intent(MainActivity.this, SelectAppActivity.class);
+        MainActivity.this.startActivity(intent);
     }
 
     private int analysisInstall(){
@@ -94,5 +120,12 @@ public class MainActivity extends Activity {
             mainPackageName = Utils.mPackageNameList[1];
         }
         return Utils.installList.size();
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_BACK && mLoadingView.getVisibility() == View.VISIBLE){
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

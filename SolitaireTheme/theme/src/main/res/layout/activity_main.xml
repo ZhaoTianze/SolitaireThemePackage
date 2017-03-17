@@ -1,44 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/activity_main" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <Button android:id="@id/bind__button" android:background="#00000000" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" />
-    <FrameLayout android:gravity="center|top" android:orientation="horizontal" android:id="@id/rrrr" android:layout_width="fill_parent" android:layout_height="fill_parent">
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <ImageView android:id="@id/view_bg" android:layout_width="640px" android:layout_height="1136px" android:src="@drawable/bg" android:layout_alignParentBottom="false" android:contentDescription="@string/app_name"
-            android:layout_centerHorizontal="true" />
+    <FrameLayout
+        android:orientation="horizontal"
+        android:id="@id/rrrr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@id/view_bg"
+            android:layout_width="640px"
+            android:layout_height="1136px"
+            android:src="@drawable/bg"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"/>
+
     </FrameLayout>
 
-    <RelativeLayout android:gravity="bottom|center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
 
-        <ImageView android:id="@id/view_mask" android:background="@drawable/mask" android:layout_width="match_parent" android:layout_height="150.0sp"
-            android:layout_alignParentBottom="true" android:contentDescription="@string/app_name"
-            android:contextClickable="false"
-            android:layout_marginBottom="0px" />
+        <LinearLayout
+            android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#ffffff">
 
-        <TextView android:textColor="#ffffff" android:gravity="center_horizontal" android:id="@id/view_message" android:layout_width="fill_parent" android:layout_height="wrap_content"
-            android:text="@string/message" android:contentDescription="@string/app_name"
-            android:textSize="20sp"
-            android:layout_alignParentBottom="false"
-            android:layout_marginTop="15sp"
-            android:layout_alignParentTop="false"
-            android:layout_alignTop="@id/view_mask" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/theme_banner_height"
+                android:id="@+id/ad_view">
 
-        <ImageView android:id="@id/view_button" android:background="@drawable/install" android:layout_width="320sp" android:layout_height="50sp"
-            android:layout_alignParentBottom="false" android:contentDescription="@string/app_name"
-            android:contextClickable="false"
-            android:layout_marginTop="10sp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/view_message" />
+                <FrameLayout
+                    android:layout_width="@dimen/theme_banner_height"
+                    android:layout_height="match_parent"
+                    android:id="@+id/icon_layout">
 
-        <TextView android:textColor="#ffffff"
-            android:id="@id/btnTextView" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="@string/download" android:contentDescription="@string/app_name"
-            android:textSize="40sp"
-            android:layout_alignParentBottom="false"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5sp"
-            android:layout_below="@id/view_message" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/native_ad_icon"
+                        android:scaleType="fitXY"/>
+                </FrameLayout>
 
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ad_title"
+                        android:textSize="@dimen/theme_banner_title_size"
+                        android:textColor="#000000"
+                        android:singleLine="true"
+                        android:layout_weight="0.5"
+                        android:gravity="center_vertical"/>
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ad_txt"
+                        android:textSize="@dimen/theme_banner_txt_size"
+                        android:textColor="#000000"
+                        android:singleLine="true"
+                        android:layout_weight="0.5"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="@dimen/theme_banner_btn_width"
+                        android:layout_height="@dimen/theme_banner_btn_height"
+                        android:layout_centerInParent="true">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/btn_cor"
+                            android:scaleType="fitXY"
+                            android:adjustViewBounds="false"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/block"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/btn_cor"
+                            android:scaleX="-1"
+                            android:scaleType="fitXY"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ad_callAction"
+                        android:textSize="@dimen/theme_banner_btn_txt_size"
+                        android:textColor="#ffffff"
+                        android:singleLine="true"
+                        android:layout_centerInParent="true"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:src="@drawable/line"
+                android:scaleType="fitXY"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/theme_bottom_height">
+
+                <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view_message"
+                    android:singleLine="true"
+                    android:textColor="#969696"
+                    android:textSize="@dimen/theme_message_size"
+                    android:maxLines="2"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="@dimen/theme_btn_width"
+                        android:layout_height="@dimen/theme_btn_height"
+                        android:layout_centerInParent="true">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/btn_cor1"
+                            android:scaleType="fitXY"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/block"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/btn_cor1"
+                            android:scaleType="fitXY"
+                            android:scaleX="-1"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnTextView"
+                        android:textSize="@dimen/theme_btn_txt_size"
+                        android:textColor="#ffffff"
+                        android:singleLine="true"
+                        android:layout_centerInParent="true"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
     </RelativeLayout>
+
+    <com.born2play.solitaire.theme.LoadingView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/loadingView"
+        android:background="#96000000">
+
+        <ImageView
+            android:layout_width="@dimen/theme_loading_width"
+            android:layout_height="@dimen/theme_loading_height"
+            android:layout_centerInParent="true"
+            android:src="@drawable/loading"/>
+    </com.born2play.solitaire.theme.LoadingView>
 </RelativeLayout>

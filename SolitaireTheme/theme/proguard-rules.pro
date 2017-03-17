@@ -27,3 +27,8 @@
 
 -dontwarn android.support.**
 -keep class android.support.**{*;}
+
+
+# 保留facebook下的所有类及其内部类
+-keep class com.facebook.** {*;}
+-dontwarn com.facebook.**

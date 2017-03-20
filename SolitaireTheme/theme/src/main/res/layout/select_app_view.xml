@@ -177,7 +177,13 @@
     <com.born2play.solitaire.theme.LoadingView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/loadingView">
+        android:id="@+id/loadingView"
+        android:background="#96000000">
 
+        <ImageView
+            android:layout_width="@dimen/theme_loading_width"
+            android:layout_height="@dimen/theme_loading_height"
+            android:layout_centerInParent="true"
+            android:src="@drawable/loading"/>
     </com.born2play.solitaire.theme.LoadingView>
 </RelativeLayout>

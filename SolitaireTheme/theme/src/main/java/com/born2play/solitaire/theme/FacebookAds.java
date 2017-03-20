@@ -41,13 +41,14 @@ class FacebookAds {
             }
             return;
         }
+        if (mLoading)   return;
         if (mInterstitialAd != null){
             mInterstitialAd.destroy();
             mInterstitialAd = null;
         }
         if (mInterstitialAd == null){
             mInterstitialAd = new InterstitialAd(context, mInterstitialId);
-            AdSettings.addTestDevice("65c81274d6d54feb54768a49c632f2e9");
+//            AdSettings.addTestDevice("65c81274d6d54feb54768a49c632f2e9");
             mInterstitialAd.setAdListener(new InterstitialAdListener() {
                 @Override
                 public void onInterstitialDisplayed(Ad ad) {
@@ -92,7 +93,7 @@ class FacebookAds {
     public void showInterstitial(Context context, @NonNull AdPlayListener adListener){
         mAdPlayListener = adListener;
         if (!isInterstitialReady()) {
-//            loadInterstitial(context);
+            loadInterstitial(context);
         }else{
             mInterstitialAd.show();
         }

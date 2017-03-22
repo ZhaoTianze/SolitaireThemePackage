@@ -198,6 +198,7 @@
             </LinearLayout>
 
         </LinearLayout>
+
     </RelativeLayout>
 
     <com.born2play.solitaire.theme.LoadingView
@@ -211,5 +212,6 @@
             android:layout_height="@dimen/theme_loading_height"
             android:layout_centerInParent="true"
             android:src="@drawable/loading"/>
+
     </com.born2play.solitaire.theme.LoadingView>
 </RelativeLayout>

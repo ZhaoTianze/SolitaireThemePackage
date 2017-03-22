@@ -3,7 +3,6 @@ package com.born2play.solitaire.theme;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatImageView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -16,7 +15,9 @@ import com.facebook.ads.AdListener;
 import com.facebook.ads.AdSettings;
 import com.facebook.ads.InterstitialAd;
 import com.facebook.ads.InterstitialAdListener;
+import com.facebook.ads.MediaView;
 import com.facebook.ads.NativeAd;
+
 
 /**
  * Created on 2017/3/16.
@@ -26,8 +27,8 @@ class FacebookAds {
     private NativeAd mNativeAd;
     private AdPlayListener mAdPlayListener;
     private boolean mLoading = false;
-    private final String mInterstitialId = "269817426796261_270095623435108";
-    private final String mNativeId = "1041072319343071_1045440302239606";
+    private final String mInterstitialId = "217345668743762_217347392076923";
+    private final String mNativeId = "217345668743762_217345995410396";
     private InterstitialAd mInterstitialAd = null;
 
     private boolean isInterstitialReady(){
@@ -48,7 +49,7 @@ class FacebookAds {
         }
         if (mInterstitialAd == null){
             mInterstitialAd = new InterstitialAd(context, mInterstitialId);
-//            AdSettings.addTestDevice("65c81274d6d54feb54768a49c632f2e9");
+//            AdSettings.addTestDevice("5c30ad399b72a8b07db7fe73b495a4e7");
             mInterstitialAd.setAdListener(new InterstitialAdListener() {
                 @Override
                 public void onInterstitialDisplayed(Ad ad) {

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-source ~/.bash_profile
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 APP_ROOT="$DIR"
 APP_STUDIO_ROOT="$DIR/SolitaireTheme"

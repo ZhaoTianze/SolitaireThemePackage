@@ -130,9 +130,9 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
                 android:src="@drawable/line"
-                android:scaleType="fitXY"/>
+                android:scaleType="fitXY"
+                android:layout_height="1dp"/>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -162,7 +162,8 @@
                         android:orientation="horizontal"
                         android:layout_width="@dimen/theme_btn_width"
                         android:layout_height="@dimen/theme_btn_height"
-                        android:layout_centerInParent="true">
+                        android:layout_centerInParent="true"
+                        android:id="@+id/btn">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -207,11 +208,19 @@
         android:id="@+id/loadingView"
         android:background="#96000000">
 
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_centerInParent="true"/>
+
         <ImageView
             android:layout_width="@dimen/theme_loading_width"
             android:layout_height="@dimen/theme_loading_height"
             android:layout_centerInParent="true"
-            android:src="@drawable/loading"/>
+            android:src="@drawable/loading"
+            android:visibility="gone"/>
 
     </com.born2play.solitaire.theme.LoadingView>
 </RelativeLayout>

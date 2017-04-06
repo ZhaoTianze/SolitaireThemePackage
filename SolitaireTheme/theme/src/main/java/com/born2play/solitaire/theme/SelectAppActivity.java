@@ -54,21 +54,22 @@ public class SelectAppActivity extends Activity {
     }
 
     public void openMainApp(final String pkg){
-        mLoadingView.setVisibility(View.VISIBLE);
-        mFacebookAds.showInterstitial(SelectAppActivity.this, new AdPlayListener() {
-            @Override
-            public void adLoaded(InterstitialAd interstitialAd) {
-                interstitialAd.show();
-            }
-
-            @Override
-            public void adEnded() {
-                mLoadingView.setVisibility(View.GONE);
-                mFacebookAds.clearListener();
-                Utils.openMainApp(SelectAppActivity.this.getApplicationContext(), pkg);
-                SelectAppActivity.this.finish();
-            }
-        });
+//        mLoadingView.setVisibility(View.VISIBLE);
+//        mFacebookAds.showInterstitial(SelectAppActivity.this, new AdPlayListener() {
+//            @Override
+//            public void adLoaded(InterstitialAd interstitialAd) {
+//                interstitialAd.show();
+//            }
+//
+//            @Override
+//            public void adEnded() {
+//                mLoadingView.setVisibility(View.GONE);
+//                mFacebookAds.clearListener();
+//                Utils.openMainApp(SelectAppActivity.this.getApplicationContext(), pkg);
+//                SelectAppActivity.this.finish();
+//            }
+//        });
+        Utils.openMainApp(SelectAppActivity.this.getApplicationContext(), pkg);
     }
 
     public class AppListAdapter extends BaseAdapter {
@@ -110,17 +111,6 @@ public class SelectAppActivity extends Activity {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mFacebookAds.showInterstitial(SelectAppActivity.this, new AdPlayListener() {
-                        @Override
-                        public void adLoaded(InterstitialAd interstitialAd) {
-
-                        }
-
-                        @Override
-                        public void adEnded() {
-
-                        }
-                    });
                     SelectAppActivity.this.openMainApp(Utils.installList.get(position));
                 }
             });

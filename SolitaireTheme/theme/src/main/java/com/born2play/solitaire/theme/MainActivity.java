@@ -19,11 +19,15 @@ import android.widget.TextView;
 
 import com.facebook.ads.InterstitialAd;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class MainActivity extends Activity {
     private String mainPackageName = "";
     private LoadingView mLoadingView;
     private FacebookAds mFacebookAds;
+    private boolean showingAlert = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +46,7 @@ public class MainActivity extends Activity {
 
         mLoadingView = (LoadingView)findViewById(R.id.loadingView);
 
-        (findViewById(R.id.view_bg)).setOnClickListener(new View.OnClickListener() {
+        (findViewById(R.id.btn)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int count = analysisInstall();
@@ -74,6 +78,24 @@ public class MainActivity extends Activity {
                 }
             }
         });
+
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mLoadingView.setVisibility(View.GONE);
+                        int count = analysisInstall();
+                        if (count == 0){
+                            createDialog();
+                        }
+                    }
+                });
+            }
+        };
+        timer.schedule(task, 5*1000);
     }
 
     private void updateView(){
@@ -94,6 +116,8 @@ public class MainActivity extends Activity {
     }
 
     private void createDialog(){
+        if (showingAlert)   return;
+        showingAlert = true;
         AlertDialog.Builder localBuilder = new AlertDialog.Builder(this);
         localBuilder.setMessage(R.string.dialog_message);
         localBuilder.setPositiveButton(R.string.download, new DialogInterface.OnClickListener() {

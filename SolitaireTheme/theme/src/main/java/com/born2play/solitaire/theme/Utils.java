@@ -19,7 +19,13 @@ class Utils {
             "com.queensgame.solitaire",
             "com.cardgame.solitaire.full",
             "com.cardgame.solitaire.basic1",
-            "com.cardgame.solitaire.basic2",};
+            "com.cardgame.solitaire.basic2",
+            "com.queensgame.freecell",
+            "com.queensgame.spider",
+            "com.queensgame.spider2",
+            "com.hapogames.FreeCell",
+            "com.queensgame.tripeaks",
+    };
     static ArrayList<String> installList = new ArrayList<>();
 
     static void refreshInstallList(Context context){

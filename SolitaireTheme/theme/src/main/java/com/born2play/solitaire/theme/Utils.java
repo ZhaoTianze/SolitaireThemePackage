@@ -25,6 +25,7 @@ class Utils {
             "com.queensgame.spider2",
             "com.hapogames.FreeCell",
             "com.queensgame.tripeaks",
+            "com.queensgame.pyramid",
     };
     static ArrayList<String> installList = new ArrayList<>();
 
